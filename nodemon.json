@@ -7,14 +7,10 @@
   "watch": [
     "*.*"
   ],
-  "ext": "js,json,pug",
+  "ext": "js,pug",
   "ignore": [
     ".git",
-    "node_modules/**/node_modules",
-    "public/images",
-    "uploads",
-    "logs",
-    "lowdb/db.json"
+    "node_modules/**/node_modules"
   ],
   "delay": 1000
 }

@@ -1,0 +1,11 @@
+{
+  "posts": [
+    {
+      "_id": "q4iqkwHdH",
+      "title": "타이틀",
+      "category": "카테고리",
+      "content": "콘텐츠",
+      "image": "image_1658373593623_1.jpg"
+    }
+  ]
+}
