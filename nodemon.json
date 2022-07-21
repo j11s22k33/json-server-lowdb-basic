@@ -1,0 +1,20 @@
+{
+  "verbose": true,
+  "execMap": {
+    "rb": "ruby",
+    "pde": "processing --sketch={{pwd}} --run"
+  },
+  "watch": [
+    "*.*"
+  ],
+  "ext": "js,json,pug",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "public/images",
+    "uploads",
+    "logs",
+    "lowdb/db.json"
+  ],
+  "delay": 1000
+}
