@@ -9,15 +9,15 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('./lowdb/db.json')
 const db = low(adapter)
 const shortid = require('shortid')
-const { v1: uuidv1 } = require('uuid')
+// const { v1: uuidv1 } = require('uuid')
 /****************************
  *
  * helper
  *
  ****************************/
 const helper = {}
-// helper.generateId = () => shortid.generate()
-helper.generateId = () => uuidv1()
+helper.generateId = () => shortid.generate()
+// helper.generateId = () => uuidv1()
 /**
  * @param {string} dbname
  * @return {*} lodash

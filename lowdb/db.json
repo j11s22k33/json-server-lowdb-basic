@@ -13,6 +13,13 @@
       "category": "카테고리2",
       "content": "콘텐츠2",
       "image": "image_1658394139616_3.jpg"
+    },
+    {
+      "_id": "f81db9a0-08d4-11ed-a831-c9b3add57448",
+      "title": "타이틀3",
+      "category": "카테고리",
+      "content": "콘텐츠3",
+      "image": "image_1658394630713_2.jpg"
     }
   ]
 }
