@@ -27,7 +27,7 @@ handlers.createPost = async (req, res) => {
     const post = req.body;
     post.image = req.file.filename;
 
-    const id = db.helper.generateShortid();
+    const id = db.helper.generateId();
     const rows = db.get(DBNAME_POSTS)
         .push({
             _id: id,
