@@ -16,6 +16,7 @@ const { v1: uuidv1 } = require('uuid')
  *
  ****************************/
 const helper = {}
+// helper.generateId = () => shortid.generate()
 helper.generateId = () => uuidv1()
 /**
  * @param {string} dbname
