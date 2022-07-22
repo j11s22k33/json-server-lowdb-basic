@@ -85,7 +85,10 @@ handlers.deletePost = async (req, res) => {
     const image = row?.image
     if (image !== '') {
         try {
-            fs.unlinkSync(`./${UPLOAD_DIR}/${image}`);
+            const unlinkPath = `./${process.env.UPLOAD_DIR}/${image}`
+            if (fs.existsSync(unlinkPath)) {
+                fs.unlinkSync(unlinkPath);
+            }
         } catch (err) {
             console.error(err);
         }
