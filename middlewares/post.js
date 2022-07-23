@@ -1,9 +1,9 @@
 const fs = require('fs');
 const db = require('../lowdb');
 const env = require('../env.js');
+const fileHelper = require('../common/fileHelper');
 
 const DBNAME_POSTS = 'posts';
-const UPLOAD_DIR = env.UPLOAD_DIR;
 
 const handlers = {};
 handlers.getAllPost = async (req, res) => {
@@ -25,7 +25,7 @@ handlers.getPostByID = async (req, res) => {
 
 handlers.createPost = async (req, res) => {
     const post = req.body;
-    post.image = req.file.filename;
+    post.image = fileHelper.getFilename(req.file);
 
     const id = db.helper.generateId();
     const rows = db.get(DBNAME_POSTS)
@@ -42,19 +42,13 @@ handlers.createPost = async (req, res) => {
 }
 handlers.updatePost = async (req, res) => {
     const id = req.params.id;
+    const {old_image} = req.body;
     let new_image = '';
     if (req.file) {
-        new_image = req.file.filename; // 새파일
-        try {
-            const unlinkPath = `./${UPLOAD_DIR}/${req.body.old_image}`
-            if (fs.existsSync(unlinkPath)) {
-                fs.unlinkSync(unlinkPath); // 이전파일 삭제
-            }
-        } catch (err) {
-            console.error(err);
-        }
+        new_image = fileHelper.getFilename(req.file)
+        fileHelper.deleteFiles([old_image]);
     } else {
-        new_image = req.body.old_image;
+        new_image = old_image;
     }
 
     const post = req.body;
@@ -82,17 +76,7 @@ handlers.deletePost = async (req, res) => {
         .remove({'_id': id})
         .write()
 
-    const image = row?.image
-    if (image !== '') {
-        try {
-            const unlinkPath = `./${process.env.UPLOAD_DIR}/${image}`
-            if (fs.existsSync(unlinkPath)) {
-                fs.unlinkSync(unlinkPath);
-            }
-        } catch (err) {
-            console.error(err);
-        }
-    }
+    fileHelper.deleteFiles([row?.image]);
     res.status(200).json({message: 'post deleted successfully'});
 }
 
