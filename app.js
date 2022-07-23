@@ -23,4 +23,10 @@ app.use(mComm.resError);
 
 process.on('exit', () => console.info('process exit: App is closed'));
 
-app.listen(port, () => console.info(`Server running at port:${port}`));
+app.listen(port, () => {
+    console.info(`Server running at port:${port}`)
+
+    const commonHelper = require("./common/commonHelper");
+    const endpointList = commonHelper.getEndpointList(app);
+    console.info(endpointList)
+});
