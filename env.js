@@ -1,9 +1,11 @@
 module.exports = {
     ...process.env,
+    APP_NAME: 'APP',
+    APP_VERSION: '1.0.0',
     UPLOAD_DIR: 'uploads',
-    ACCESS_TOKEN_SECRET: 'accessTokenSecret',
-    ACCESS_TOKEN_EXPIRES_IN: '10s',
-    REFRESH_TOKEN_SECRET: 'refreshTokenSecret',
-    REFRESH_TOKEN_EXPIRES_IN: '14d',
     HASH_SECRET: 'hashSecret',
+    ACCESS_TOKEN_SECRET: 'accessTokenSecret',
+    REFRESH_TOKEN_SECRET: 'refreshTokenSecret',
+    ACCESS_TOKEN_EXPIRES_IN: '10s',
+    REFRESH_TOKEN_EXPIRES_IN: '14d',
 }
