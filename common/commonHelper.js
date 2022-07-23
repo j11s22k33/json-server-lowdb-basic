@@ -1,4 +1,3 @@
-const listEndpoints = require("express-list-endpoints");
 const helper = {}
 
 /**
